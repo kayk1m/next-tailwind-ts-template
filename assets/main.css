@@ -1,0 +1,18 @@
+@tailwind base;
+
+@layer base {
+  a,
+  button {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary;
+  }
+
+  [type='checkbox'] {
+    @apply text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary;
+  }
+}
+
+@import './base.css';
+
+@tailwind components;
+
+@tailwind utilities;
