@@ -8,8 +8,6 @@ import Head from 'next/head';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 
-import fetcher from '@lib/fetcher';
-
 NProgress.configure({
   minimum: 0.3,
   easing: 'ease',
@@ -22,7 +20,6 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-
   return (
     <>
       <Head>
