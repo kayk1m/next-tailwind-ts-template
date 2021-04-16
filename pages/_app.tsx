@@ -7,6 +7,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import ManagedUIContext from '@components/ui/context';
+import Layout from '@components/ui/Layout';
 
 NProgress.configure({
   minimum: 0.3,
@@ -26,7 +28,11 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script type="text/javascript" src="/js/redirectIE.js" />
       </Head>
-      <Component {...pageProps} />
+      <ManagedUIContext>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ManagedUIContext>
     </>
   );
 };
