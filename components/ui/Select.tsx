@@ -14,7 +14,7 @@ interface Props {
   className?: string;
   label?: string;
   items: SelectItem[];
-  selected: SelectItem;
+  selectedValue: unknown;
   onSelect: (item: SelectItem) => void;
   optional?: boolean;
 }
@@ -23,15 +23,23 @@ const Select: React.FC<Props> = ({
   className,
   label,
   items,
-  selected,
+  selectedValue,
   onSelect,
   optional = false,
 }) => {
+  const getItemByValue = React.useCallback(
+    (value: unknown) => {
+      const idx = items.findIndex((val) => val.value === value);
+      return idx !== -1 ? items[idx] : items[0];
+    },
+    [items],
+  );
+
   if (!items.length) return <></>;
 
   return (
     <div className={cn(className)}>
-      <Listbox value={selected} onChange={onSelect}>
+      <Listbox value={getItemByValue(selectedValue)} onChange={onSelect}>
         {({ open }) => (
           <>
             <Listbox.Label className="block text-base font-semibold text-gray-700">
@@ -43,7 +51,7 @@ const Select: React.FC<Props> = ({
             <div className="mt-1 relative">
               <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
                 <span className="block truncate text-base">
-                  {selected.label}
+                  {getItemByValue(selectedValue).label}
                 </span>
                 <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                   <SelectorIcon
@@ -62,7 +70,7 @@ const Select: React.FC<Props> = ({
               >
                 <Listbox.Options
                   static
-                  className="absolute mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+                  className="absolute mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none z-10"
                 >
                   {items.map((item) => (
                     <Listbox.Option

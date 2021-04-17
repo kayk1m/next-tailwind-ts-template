@@ -59,7 +59,7 @@ const IndexPage = () => {
         <Select
           label="성별"
           items={genders}
-          selected={gender}
+          selectedValue={gender.value}
           onSelect={(item) => setGender(item as never)}
         />
         <div>
