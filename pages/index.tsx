@@ -4,9 +4,39 @@ import Dropdown from '@components/ui/Dropdown';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import { useUI } from '@components/ui/context';
 import Button from '@components/ui/Button';
+import Select from '@components/ui/Select';
+
+const genders = [
+  {
+    key: 'gender0',
+    label: '선택',
+    value: null,
+  },
+  {
+    key: 'gender1',
+    label: '남성',
+    value: 'male',
+  },
+  {
+    key: 'gender2',
+    label: '여성',
+    value: 'female',
+  },
+  {
+    key: 'gender3',
+    label: '기타',
+    value: 'other',
+  },
+];
 
 const IndexPage = () => {
   const { showModal, closeModal, showNoti } = useUI();
+  const [gender, setGender] = React.useState<{
+    key: string;
+    label: string;
+    value: string | null;
+  }>(genders[0]);
+
   return (
     <div className="mx-auto max-w-screen-lg text-2xl pt-4 h-[1200px] flex justify-center">
       {/* <p className="text-xl">hello world</p> */}
@@ -25,6 +55,12 @@ const IndexPage = () => {
             { label: 'hello', onClick: () => {} },
             { label: 'world', onClick: () => {} },
           ]}
+        />
+        <Select
+          label="성별"
+          items={genders}
+          selected={gender}
+          onSelect={(item) => setGender(item as never)}
         />
         <div>
           <Button
