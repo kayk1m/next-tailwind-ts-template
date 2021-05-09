@@ -41,6 +41,10 @@ const IndexPage = () => {
     <div className="mx-auto max-w-screen-lg text-2xl pt-4 h-[1200px] flex justify-center">
       {/* <p className="text-xl">hello world</p> */}
       <div className="space-y-4">
+        <div
+          className="w-20 h-20 bg-black sm:bg-red-500 md:bg-yellow-500 lg:bg-blue-500 xl:bg-green-500 2xl:bg-lightBlue-500 "
+          aria-hidden="true"
+        />
         <Dropdown
           button={
             <div className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
@@ -60,7 +64,7 @@ const IndexPage = () => {
           label="성별"
           items={genders}
           selectedValue={gender.value}
-          onSelect={(item) => setGender(item as never)}
+          onSelect={(item) => setGender(item)}
         />
         <div>
           <Button
@@ -122,24 +126,24 @@ const IndexPage = () => {
             default Noti
           </Button>
           <div>
-            <Button size="sm">작은버튼</Button>
+            <Button size="sm">작은 버튼</Button>
           </div>
           <div>
-            <Button size="base">기본버튼</Button>
+            <Button size="base">기본 버튼</Button>
           </div>
           <div>
-            <Button size="lg">큰버튼</Button>
+            <Button size="lg">큰 버튼</Button>
           </div>
           <div>
             <Button full>긴</Button>
           </div>
           <div>
             <Button color="red" size="lg">
-              빨간샥버튼
+              빨간색 버튼
             </Button>
           </div>
           <div>
-            <Button color="white">하얀색버튼</Button>
+            <Button color="white">하얀색 버튼</Button>
           </div>
         </div>
       </div>

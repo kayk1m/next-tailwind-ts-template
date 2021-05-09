@@ -4,29 +4,29 @@ import cn from 'classnames';
 
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
-interface SelectItem {
+type SelectItem<T> = {
   key: string;
   label: string;
-  value: unknown;
-}
+  value: T;
+};
 
-interface Props {
+type Props<T> = {
   className?: string;
   label?: string;
-  items: SelectItem[];
-  selectedValue: unknown;
-  onSelect: (item: SelectItem) => void;
+  items: SelectItem<T>[];
+  selectedValue: T;
+  onSelect: (item: SelectItem<T>) => void;
   optional?: boolean;
-}
+};
 
-const Select: React.FC<Props> = ({
+export default function Select<T>({
   className,
   label,
   items,
   selectedValue,
   onSelect,
   optional = false,
-}) => {
+}: Props<T>) {
   const getItemByValue = React.useCallback(
     (value: unknown) => {
       const idx = items.findIndex((val) => val.value === value);
@@ -119,6 +119,4 @@ const Select: React.FC<Props> = ({
       </Listbox>
     </div>
   );
-};
-
-export default Select;
+}
