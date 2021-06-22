@@ -18,11 +18,11 @@ interface OurButtonProps {
   size?: 'sm' | 'base' | 'lg';
 }
 
-type ButtonPropsWeContrl = 'type';
+type ButtonPropsWeControl = 'type';
 
 const ButtonWithRef = forwardRefWithAs(function Button<
   TTag extends ElementType = typeof DEFAULT_BUTTON_TAG,
->(props: Props<TTag, ButtonPropsWeContrl> & OurButtonProps, ref: Ref<HTMLButtonElement>) {
+>(props: Props<TTag, ButtonPropsWeControl> & OurButtonProps, ref: Ref<HTMLButtonElement>) {
   const {
     color = 'sky',
     full = false,

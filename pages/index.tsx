@@ -3,7 +3,6 @@ import NextLink from 'next/link';
 
 import { useUI } from '@components/context';
 import { Button } from '@components/ui';
-import ButtonWithRef from '@components/ui/Button';
 
 export default function IndexPage() {
   const { showModal, closeModal, showNoti } = useUI();
