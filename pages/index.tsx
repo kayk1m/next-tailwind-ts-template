@@ -1,70 +1,24 @@
 import React from 'react';
-import Dropdown from '@components/ui/Dropdown';
+import NextLink from 'next/link';
 
-import { ChevronDownIcon } from '@heroicons/react/solid';
-import { useUI } from '@components/ui/context';
-import Button from '@components/ui/Button';
-import Select from '@components/ui/Select';
+import { useUI } from '@components/context';
+import { Button } from '@components/ui';
+import ButtonWithRef from '@components/ui/Button';
 
-const genders = [
-  {
-    key: 'gender0',
-    label: '선택',
-    value: null,
-  },
-  {
-    key: 'gender1',
-    label: '남성',
-    value: 'male',
-  },
-  {
-    key: 'gender2',
-    label: '여성',
-    value: 'female',
-  },
-  {
-    key: 'gender3',
-    label: '기타',
-    value: 'other',
-  },
-];
-
-const IndexPage = () => {
+export default function IndexPage() {
   const { showModal, closeModal, showNoti } = useUI();
-  const [gender, setGender] = React.useState<{
-    key: string;
-    label: string;
-    value: string | null;
-  }>(genders[0]);
 
   return (
     <div className="mx-auto max-w-screen-lg text-2xl pt-4 h-[1200px] flex justify-center">
       {/* <p className="text-xl">hello world</p> */}
       <div className="space-y-4">
         <div
-          className="w-20 h-20 bg-black sm:bg-red-500 md:bg-yellow-500 lg:bg-blue-500/30 xl:bg-green-500 2xl:bg-lightBlue-500 "
+          className="w-20 h-20 bg-black sm:bg-red-500 md:bg-yellow-500 lg:bg-blue-500/30 xl:bg-green-500 2xl:bg-sky-500 "
           aria-hidden="true"
         />
-        <Dropdown
-          button={
-            <div className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-              options
-              <ChevronDownIcon
-                className="-mr-1 ml-2 h-5 w-5"
-                aria-hidden="true"
-              />
-            </div>
-          }
-          dropdownItems={[
-            { label: 'hello', onClick: () => {} },
-            { label: 'world', onClick: () => {} },
-          ]}
-        />
-        <Select
-          label="성별"
-          items={genders}
-          selectedValue={gender.value}
-          onSelect={(item) => setGender(item)}
+        <div
+          className="w-20 h-20 bg-black/40 sm:bg-red-500/40 md:bg-yellow-500/40 lg:bg-blue-500/40/30 xl:bg-green-500/40 2xl:bg-sky-500/40 "
+          aria-hidden="true"
         />
         <div>
           <Button
@@ -115,40 +69,16 @@ const IndexPage = () => {
           </Button>
         </div>
         <div>
-          <Button
-            onClick={() => showNoti({ title: '알람입니다.', variant: 'alert' })}
-          >
+          <Button onClick={() => showNoti({ title: '알람입니다.', variant: 'alert' })}>
             alert Noti
           </Button>
         </div>
-        <div className="space-y-4">
-          <Button onClick={() => showNoti({ title: '기본입니다.' })}>
-            default Noti
-          </Button>
-          <div>
-            <Button size="sm">작은 버튼</Button>
-          </div>
-          <div>
-            <Button size="base">기본 버튼</Button>
-          </div>
-          <div>
-            <Button size="lg">큰 버튼</Button>
-          </div>
-          <div>
-            <Button full>긴</Button>
-          </div>
-          <div>
-            <Button color="red" size="lg">
-              빨간색 버튼
-            </Button>
-          </div>
-          <div>
-            <Button color="white">하얀색 버튼</Button>
-          </div>
+        <div className="space-x-4">
+          <NextLink href="/test" passHref>
+            <Button as="a">hello</Button>
+          </NextLink>
         </div>
       </div>
     </div>
   );
-};
-
-export default IndexPage;
+}

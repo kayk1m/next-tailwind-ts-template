@@ -1,33 +1,33 @@
-import React from 'react';
+import React, { Fragment, useCallback } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import cn from 'classnames';
 
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
-type SelectItem<T> = {
+type SelectItem<TType> = {
   key: string;
   label: string;
-  value: T;
+  value: TType;
 };
 
-type Props<T> = {
+type SelectProps<TType> = {
   className?: string;
   label?: string;
-  items: SelectItem<T>[];
-  selectedValue: T;
-  onSelect: (item: SelectItem<T>) => void;
+  items: SelectItem<TType>[];
+  selectedValue: TType;
+  onSelect: (item: SelectItem<TType>) => void;
   optional?: boolean;
 };
 
-export default function Select<T>({
+export default function Select<TType>({
   className,
   label,
   items,
   selectedValue,
   onSelect,
   optional = false,
-}: Props<T>) {
-  const getItemByValue = React.useCallback(
+}: SelectProps<TType>) {
+  const getItemByValue = useCallback(
     (value: unknown) => {
       const idx = items.findIndex((val) => val.value === value);
       return idx !== -1 ? items[idx] : items[0];
@@ -35,18 +35,19 @@ export default function Select<T>({
     [items],
   );
 
-  if (!items.length) return <></>;
+  // validations
+  if (!items.length) {
+    throw new Error(`Check items array (length). Received: ${items}`);
+  }
 
   return (
-    <div className={cn(className)}>
+    <div className={className}>
       <Listbox value={getItemByValue(selectedValue)} onChange={onSelect}>
         {({ open }) => (
           <>
             <Listbox.Label className="block text-base font-semibold text-gray-700">
               <span>{label}</span>
-              <span className={cn('text-gray-400', { hidden: !optional })}>
-                &nbsp;(선택)
-              </span>
+              <span className={cn('text-gray-400', { hidden: !optional })}>&nbsp;(선택)</span>
             </Listbox.Label>
             <div className="mt-1 relative">
               <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
@@ -54,16 +55,13 @@ export default function Select<T>({
                   {getItemByValue(selectedValue).label}
                 </span>
                 <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                  <SelectorIcon
-                    className="h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />
+                  <SelectorIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                 </span>
               </Listbox.Button>
 
               <Transition
                 show={open}
-                as={React.Fragment}
+                as={Fragment}
                 leave="transition ease-in duration-100"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
@@ -101,10 +99,7 @@ export default function Select<T>({
                                 'absolute inset-y-0 right-0 flex items-center pr-4',
                               )}
                             >
-                              <CheckIcon
-                                className="h-5 w-5"
-                                aria-hidden="true"
-                              />
+                              <CheckIcon className="h-5 w-5" aria-hidden="true" />
                             </span>
                           ) : null}
                         </>

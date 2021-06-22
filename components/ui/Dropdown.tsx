@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { Fragment, ReactNode } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import cn from 'classnames';
 
 interface DropdownItem {
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   label: string;
   onClick: () => void;
 }
 
-interface Props {
-  button: React.ReactNode;
+interface DropdownProps {
+  button: ReactNode;
   dropdownItems: DropdownItem[];
 }
 
-const Dropdown: React.FC<Props> = ({ button, dropdownItems }) => {
+export default function Dropdown({ button, dropdownItems }: DropdownProps) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       {({ open }) => (
@@ -23,7 +23,7 @@ const Dropdown: React.FC<Props> = ({ button, dropdownItems }) => {
           </div>
           <Transition
             show={open}
-            as={React.Fragment}
+            as={Fragment}
             enter="transition ease-out duration-200"
             enterFrom="transform opacity-0 scale-95"
             enterTo="transform opacity-100 scale-100"
@@ -46,9 +46,7 @@ const Dropdown: React.FC<Props> = ({ button, dropdownItems }) => {
                       onClick={onClick}
                     >
                       {icon}
-                      <span className={cn({ 'ml-3': icon !== undefined })}>
-                        {label}
-                      </span>
+                      <span className={cn({ 'ml-3': icon !== undefined })}>{label}</span>
                     </button>
                   )}
                 </Menu.Item>
@@ -59,6 +57,4 @@ const Dropdown: React.FC<Props> = ({ button, dropdownItems }) => {
       )}
     </Menu>
   );
-};
-
-export default Dropdown;
+}

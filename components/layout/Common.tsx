@@ -1,13 +1,9 @@
 import React from 'react';
-import { useUI } from './context';
+import { useUI } from '../context';
 
-// contexts
-import Modal from './Modal';
-import Notification from './Notification';
+import { Modal, Notification } from '@components/ui';
 
-// components
-
-const Layout: React.FC = ({ children }) => {
+export default function CommonLayout({ children }: { children: React.ReactNode }) {
   const { modalFlag, modalContent, notiFlag, closeNoti, notiContent } = useUI();
 
   return (
@@ -24,6 +20,4 @@ const Layout: React.FC = ({ children }) => {
       />
     </div>
   );
-};
-
-export default Layout;
+}

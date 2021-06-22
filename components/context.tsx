@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, FC, useCallback, useContext, useEffect } from 'react';
 
 interface NotiContent {
   variant?: 'default' | 'alert';
@@ -54,15 +54,13 @@ const initialStateWithActions: StateWithActions = {
   closeModal: () => {},
 };
 
-export const UIContext = React.createContext<StateWithActions>(
-  initialStateWithActions,
-);
+export const UIContext = createContext<StateWithActions>(initialStateWithActions);
 
-export const UIProvider: React.FC = ({ ...props }) => {
+export const UIProvider: FC = ({ ...props }) => {
   const [state, setState] = React.useState<State>(initialState);
   const timer = React.useRef<NodeJS.Timeout | null>(null);
 
-  const closeNoti = React.useCallback(() => {
+  const closeNoti = useCallback(() => {
     if (timer.current) clearTimeout(timer.current);
 
     setState((prev) => {
@@ -86,7 +84,7 @@ export const UIProvider: React.FC = ({ ...props }) => {
     }, 100);
   }, []);
 
-  const showNoti = React.useCallback(
+  const showNoti = useCallback(
     (
       notiContent: {
         variant?: 'default' | 'alert';
@@ -111,7 +109,7 @@ export const UIProvider: React.FC = ({ ...props }) => {
     [closeNoti],
   );
 
-  const closeModal = React.useCallback(() => {
+  const closeModal = useCallback(() => {
     setState((prev) => {
       const updatedState: State = {
         ...prev,
@@ -138,7 +136,7 @@ export const UIProvider: React.FC = ({ ...props }) => {
     }, 300);
   }, []);
 
-  const showModal = React.useCallback((modal: ModalContent) => {
+  const showModal = useCallback((modal: ModalContent) => {
     setState((prev) => {
       const updatedState: State = {
         ...prev,
@@ -150,7 +148,7 @@ export const UIProvider: React.FC = ({ ...props }) => {
     });
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const storedState = sessionStorage.getItem('@UIContext');
 
     if (storedState)
@@ -183,16 +181,16 @@ export const UIProvider: React.FC = ({ ...props }) => {
   );
 };
 
-export const useUI = () => {
-  const context = React.useContext(UIContext);
+export function useUI() {
+  const context = useContext(UIContext);
+
   if (context === undefined) {
     throw new Error('useUI must be used within a UIProvider');
   }
-  return context;
-};
 
-export const ManagedUIContext: React.FC = ({ children }) => (
-  <UIProvider>{children}</UIProvider>
-);
+  return context;
+}
+
+export const ManagedUIContext: FC = ({ children }) => <UIProvider>{children}</UIProvider>;
 
 export default ManagedUIContext;

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable no-undef */
 const colors = require('tailwindcss/colors');
 
 module.exports = {
@@ -9,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.lightBlue[400],
-        lightBlue: colors.lightBlue,
+        primary: colors.sky[400],
+        sky: colors.sky,
       },
     },
   },

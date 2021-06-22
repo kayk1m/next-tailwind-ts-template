@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import '@assets/main.css';
 import 'nprogress/nprogress.css';
 
@@ -6,9 +5,11 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Router from 'next/router';
+import Script from 'next/script';
 import NProgress from 'nprogress';
-import ManagedUIContext from '@components/ui/context';
-import Layout from '@components/ui/Layout';
+
+import ManagedUIContext from '@components/context';
+import { CommonLayout } from '@components/layout';
 
 NProgress.configure({
   minimum: 0.3,
@@ -21,20 +22,18 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Script src="/js/redirectIE.js" strategy="beforeInteractive" />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script type="text/javascript" src="/js/redirectIE.js" />
       </Head>
       <ManagedUIContext>
-        <Layout>
+        <CommonLayout>
           <Component {...pageProps} />
-        </Layout>
+        </CommonLayout>
       </ManagedUIContext>
     </>
   );
-};
-
-export default App;
+}

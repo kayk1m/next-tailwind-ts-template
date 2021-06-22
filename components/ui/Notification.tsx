@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import cn from 'classnames';
 import { Transition } from '@headlessui/react';
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/outline';
 import { XIcon } from '@heroicons/react/solid';
 
-interface Props {
+interface NotificationProps {
   variant?: 'default' | 'alert';
   show: boolean;
   close: () => void;
@@ -13,15 +13,14 @@ interface Props {
   className?: string;
 }
 
-const Notification: React.FC<Props> = ({
+export default function Notification({
   variant = 'default',
   show,
   close,
   title,
   content,
   className,
-  ...props
-}) => {
+}: NotificationProps) {
   return (
     <>
       {/* Global notification live region, render this permanently at the end of the document */}
@@ -31,12 +30,11 @@ const Notification: React.FC<Props> = ({
           className,
           'fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end',
         )}
-        {...props}
       >
         {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
         <Transition
           show={show}
-          as={React.Fragment}
+          as={Fragment}
           enter="transform ease-out duration-300 transition"
           enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
           enterTo="translate-y-0 opacity-100 sm:translate-x-0"
@@ -70,9 +68,7 @@ const Notification: React.FC<Props> = ({
                   })}
                 >
                   <p className="font-semibold text-gray-900">{title}</p>
-                  <p className="mt-1 leading-5 font-medium text-gray-500">
-                    {content}
-                  </p>
+                  <p className="mt-1 leading-5 font-medium text-gray-500">{content}</p>
                 </div>
                 <div className="ml-4 flex-shrink-0 flex">
                   <button
@@ -92,6 +88,4 @@ const Notification: React.FC<Props> = ({
       </div>
     </>
   );
-};
-
-export default Notification;
+}
