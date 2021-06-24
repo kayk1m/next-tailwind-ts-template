@@ -1,6 +1,6 @@
 import { createError } from '@defines/errors';
 
-function isString(
+export default function isString(
   val: any,
   opts?: { strict?: boolean; minLength?: number; maxLength?: number },
 ): val is string {
@@ -54,5 +54,3 @@ function isString(
 
   return true;
 }
-
-export default isString;
