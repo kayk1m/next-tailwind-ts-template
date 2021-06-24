@@ -1,6 +1,18 @@
 @tailwind base;
 
 @layer base {
+  html {
+    @apply h-full;
+  }
+
+  body {
+    @apply relative h-full text-gray-900 text-base;
+  }
+
+  #__next {
+    @apply h-full;
+  }
+
   a,
   button {
     @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary;
@@ -14,8 +26,6 @@
     @apply text-primary border-gray-400 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary;
   }
 }
-
-@import './base.css';
 
 @tailwind components;
 
