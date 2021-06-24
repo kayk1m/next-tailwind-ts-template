@@ -30,12 +30,13 @@ const ButtonWithRef = forwardRefWithAs(function Button<
     className,
     as: Component = DEFAULT_BUTTON_TAG,
     children,
-    type = 'button',
+    type = 'button' as const,
     ...rest
   } = props;
 
   const propsWeControl = {
     ref,
+    type,
     // type: Component === 'button' ? ('button' as const) : undefined,
   };
   const passthroughProps = rest;
@@ -57,7 +58,6 @@ const ButtonWithRef = forwardRefWithAs(function Button<
             color !== 'white',
         },
       )}
-      type={type}
       {...passthroughProps}
       {...propsWeControl}
     >
