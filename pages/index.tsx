@@ -12,13 +12,14 @@ export default function IndexPage() {
       {/* <p className="text-xl">hello world</p> */}
       <div className="space-y-4">
         <div
-          className="w-20 h-20 bg-black sm:bg-red-500 md:bg-yellow-500 lg:bg-blue-500/30 xl:bg-green-500 2xl:bg-sky-500 "
+          className="w-20 h-20 bg-black sm:bg-red-500 md:bg-yellow-500 lg:bg-blue-500 xl:bg-green-500 2xl:bg-sky-500"
           aria-hidden="true"
         />
         <div
-          className="w-20 h-20 bg-black/40 sm:bg-red-500/40 md:bg-yellow-500/40 lg:bg-blue-500/40/30 xl:bg-green-500/40 2xl:bg-sky-500/40 "
+          className="w-20 h-20 bg-black/40 sm:bg-red-500/40 md:bg-yellow-500/40 lg:bg-blue-500/40 xl:bg-green-500/40 2xl:bg-sky-500/40"
           aria-hidden="true"
         />
+        <div className="w-20 h-20 bg-gradient-to-br from-black/40 to-white/60" aria-hidden="true" />
         <div>
           <Button
             onClick={() =>

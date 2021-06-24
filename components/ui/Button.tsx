@@ -1,7 +1,7 @@
 import React, { ElementType, Ref } from 'react';
 import cn from 'classnames';
 
-import { Props } from 'types';
+import { Props, __ } from 'types';
 import { forwardRefWithAs } from '@utils/forward-ref-with-as';
 
 const DEFAULT_BUTTON_TAG = 'button' as const;
@@ -18,7 +18,7 @@ interface OurButtonProps {
   size?: 'sm' | 'base' | 'lg';
 }
 
-type ButtonPropsWeControl = 'type';
+type ButtonPropsWeControl = __;
 
 const ButtonWithRef = forwardRefWithAs(function Button<
   TTag extends ElementType = typeof DEFAULT_BUTTON_TAG,
@@ -30,12 +30,13 @@ const ButtonWithRef = forwardRefWithAs(function Button<
     className,
     as: Component = DEFAULT_BUTTON_TAG,
     children,
+    type = 'button',
     ...rest
   } = props;
 
   const propsWeControl = {
     ref,
-    type: Component === 'button' ? ('button' as const) : undefined,
+    // type: Component === 'button' ? ('button' as const) : undefined,
   };
   const passthroughProps = rest;
 
@@ -56,6 +57,7 @@ const ButtonWithRef = forwardRefWithAs(function Button<
             color !== 'white',
         },
       )}
+      type={type}
       {...passthroughProps}
       {...propsWeControl}
     >
