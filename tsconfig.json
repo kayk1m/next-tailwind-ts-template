@@ -15,9 +15,10 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@lib/*": ["lib/*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
+      "@defines/*": ["defines/*"],
+      "@lib/*": ["lib/*"],
       "@utils/*": ["utils/*"]
     }
   },

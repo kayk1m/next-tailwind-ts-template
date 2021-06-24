@@ -1,16 +1,22 @@
-import React from 'react';
+/**
+ * @template PageComponent
+ */
+
+import React, { useState } from 'react';
 import NextLink from 'next/link';
 
 import { useUI } from '@components/context';
 import { Button } from '@components/ui';
+import { fetcher } from '@lib/fetcher';
 
 export default function IndexPage() {
   const { showModal, closeModal, showNoti } = useUI();
+  const [result, setResult] = useState<string | null>(null);
 
   return (
     <div className="mx-auto max-w-screen-lg text-2xl pt-4 h-[1200px] flex justify-center">
       {/* <p className="text-xl">hello world</p> */}
-      <div className="space-y-4">
+      <div className="space-y-4 w-full">
         <div
           className="w-20 h-20 bg-black sm:bg-red-500 md:bg-yellow-500 lg:bg-blue-500 xl:bg-green-500 2xl:bg-sky-500"
           aria-hidden="true"
@@ -22,6 +28,7 @@ export default function IndexPage() {
         <div className="w-20 h-20 bg-gradient-to-br from-black/40 to-white/60" aria-hidden="true" />
         <div>
           <Button
+            color="red"
             onClick={() =>
               showModal({
                 variant: 'alert',
@@ -69,15 +76,51 @@ export default function IndexPage() {
           </Button>
         </div>
         <div>
-          <Button onClick={() => showNoti({ title: '알람입니다.', variant: 'alert' })}>
+          <Button
+            color="white"
+            onClick={() => showNoti({ title: '알람입니다.', variant: 'alert' })}
+          >
             alert Noti
           </Button>
         </div>
         <div className="space-x-4">
           <NextLink href="/test" passHref>
-            <Button as="a">hello</Button>
+            <Button as="a">Button as Anchor</Button>
+          </NextLink>
+          <NextLink href="/test">
+            <Button>push button</Button>
           </NextLink>
         </div>
+        <div className="space-x-4">
+          <Button
+            onClick={() => {
+              fetcher('/api')
+                .then((res) => setResult(JSON.stringify(res)))
+                .catch((err) => showNoti({ variant: 'alert', title: err.message }));
+            }}
+          >
+            STATUS
+          </Button>
+          <Button
+            color="red"
+            onClick={() => {
+              fetcher('/api/error')
+                .then((res) => setResult(JSON.stringify(res)))
+                .catch((err) => showNoti({ variant: 'alert', title: err.message }));
+            }}
+          >
+            ERROR
+          </Button>
+          <Button
+            color="white"
+            onClick={() => {
+              setResult(null);
+            }}
+          >
+            CLEAR
+          </Button>
+        </div>
+        <p className="text-lg">{result || 'null'}</p>
       </div>
     </div>
   );

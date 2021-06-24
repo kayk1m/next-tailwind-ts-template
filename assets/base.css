@@ -15,19 +15,3 @@ body {
 *::-webkit-scrollbar {
   display: none;
 }
-
-body::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #1697bf, #62b7ac);
-}
-
-::-webkit-scrollbar-button {
-  display: none;
-}
