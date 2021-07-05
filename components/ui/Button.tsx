@@ -1,4 +1,4 @@
-import React, { ElementType, Ref } from 'react';
+import { ElementType, Ref } from 'react';
 import cn from 'classnames';
 
 import { Props, __ } from 'types';

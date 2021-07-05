@@ -1,4 +1,3 @@
-import React from 'react';
 import { useUI } from '../context';
 
 import { Modal, Notification } from '@components/ui';

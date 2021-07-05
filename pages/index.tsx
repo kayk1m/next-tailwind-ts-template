@@ -2,7 +2,7 @@
  * @template PageComponent
  */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import NextLink from 'next/link';
 
 import { useUI } from '@components/context';

@@ -1,4 +1,4 @@
-import React, { createContext, FC, useCallback, useContext, useEffect } from 'react';
+import { createContext, FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 
 interface NotiContent {
   variant?: 'default' | 'alert';
@@ -57,8 +57,8 @@ const initialStateWithActions: StateWithActions = {
 export const UIContext = createContext<StateWithActions>(initialStateWithActions);
 
 export const UIProvider: FC = ({ ...props }) => {
-  const [state, setState] = React.useState<State>(initialState);
-  const timer = React.useRef<NodeJS.Timeout | null>(null);
+  const [state, setState] = useState<State>(initialState);
+  const timer = useRef<NodeJS.Timeout | null>(null);
 
   const closeNoti = useCallback(() => {
     if (timer.current) clearTimeout(timer.current);

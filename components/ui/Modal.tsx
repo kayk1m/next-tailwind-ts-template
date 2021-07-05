@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import cn from 'classnames';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon, ExclamationIcon } from '@heroicons/react/outline';
