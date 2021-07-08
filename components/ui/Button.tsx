@@ -36,8 +36,7 @@ const ButtonWithRef = forwardRefWithAs(function Button<
 
   const propsWeControl = {
     ref,
-    type,
-    // type: Component === 'button' ? ('button' as const) : undefined,
+    type: Component === 'button' ? ('button' as const) : undefined,
   };
   const passthroughProps = rest;
 
