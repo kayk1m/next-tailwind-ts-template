@@ -1,4 +1,4 @@
-import React, { ElementType, ReactNode } from 'react';
+import { ComponentProps, ElementType, ReactNode } from 'react';
 
 // A unique placeholder we can use as a default. This is nice because we can use this instead of
 // defaulting to null / never / ... and possibly collide with actual data.
@@ -8,7 +8,7 @@ export type __ = typeof __;
 
 export type Expand<T> = T extends infer O ? { [K in keyof O]: O[K] } : never;
 
-export type PropsOf<TTag = any> = TTag extends ElementType ? React.ComponentProps<TTag> : never;
+export type PropsOf<TTag = any> = TTag extends ElementType ? ComponentProps<TTag> : never;
 
 type PropsWeControl = 'as' | 'children' | 'refName' | 'className';
 
