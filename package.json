@@ -1,6 +1,6 @@
 {
   "name": "next-tailwind-ts-template",
-  "version": "3.2.3",
+  "version": "3.3.0",
   "description": "template project",
   "scripts": {
     "dev": "next dev",
@@ -23,6 +23,7 @@
     "@tailwindcss/forms": "0.3.3",
     "@tailwindcss/line-clamp": "0.2.1",
     "classnames": "2.3.1",
+    "joi": "17.4.1",
     "next": "11.0.1",
     "nprogress": "0.2.0",
     "react": "17.0.2",

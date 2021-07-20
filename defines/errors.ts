@@ -1,4 +1,4 @@
-import { isString } from '@utils/validator/common';
+import Joi from 'joi';
 
 const ERROR_VARIANTS = ['CE'] as const;
 type ErrorCode = `${typeof ERROR_VARIANTS[number]}${number}`;
@@ -10,9 +10,16 @@ export interface CustomError {
 }
 
 export function isCustomError(error: any): error is CustomError {
-  const { code, name, message } = error;
-
-  if (!isString(code, { minLength: 5, maxLength: 5 }) || !isString(name) || !isString(message)) {
+  try {
+    Joi.assert(
+      error,
+      Joi.object({
+        code: Joi.string().required().length(5),
+        name: Joi.string().required(),
+        message: Joi.string().required(),
+      }),
+    );
+  } catch {
     return false;
   }
 
