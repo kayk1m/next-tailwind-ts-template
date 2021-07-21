@@ -3,7 +3,6 @@ import 'nprogress/nprogress.css';
 
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
@@ -36,9 +35,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script src="/js/redirectIE.js" strategy="beforeInteractive" />
-      <Head>
-        <script src="/js/redirectIE.js" defer />
-      </Head>
       <ManagedUIContext>
         <CommonLayout>
           <Component {...pageProps} />
