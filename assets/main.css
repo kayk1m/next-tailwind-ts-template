@@ -15,15 +15,15 @@
 
   a,
   button {
-    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-400;
   }
 
   [type='checkbox'] {
-    @apply text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary;
+    @apply text-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-400;
   }
 
   [type='radio'] {
-    @apply text-primary border-gray-400 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary;
+    @apply text-blue-400 border-gray-400 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-400;
   }
 }
 

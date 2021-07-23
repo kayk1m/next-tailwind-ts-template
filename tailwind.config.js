@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.sky[400],
+        // You can add more colors here.
         sky: colors.sky,
       },
     },

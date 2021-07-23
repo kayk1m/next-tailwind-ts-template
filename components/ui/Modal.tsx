@@ -106,7 +106,7 @@ export default function Modal({
                   className={cn(
                     'w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium text-white sm:text-sm',
                     {
-                      'bg-primary hover:bg-lightBlue-500 sm:col-start-2': variant === 'default',
+                      'bg-blue-400 hover:bg-lightBlue-500 sm:col-start-2': variant === 'default',
                       'bg-red-600 hover:bg-red-700 focus-visible:ring-red-500 sm:ml-3 sm:w-auto':
                         variant === 'alert',
                     },

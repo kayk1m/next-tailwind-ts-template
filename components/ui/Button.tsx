@@ -7,7 +7,7 @@ import { forwardRefWithAs } from '@utils/forward-ref-with-as';
 const DEFAULT_BUTTON_TAG = 'button' as const;
 
 const colorClasses = {
-  sky: 'bg-sky-400 hover:bg-sky-500 border-transparent',
+  sky: 'bg-blue-400 hover:bg-blue-500 border-transparent',
   red: 'bg-red-400 hover:bg-red-500 focus-visible:ring-red-500 border-transparent',
   white: 'bg-white hover:bg-gray-50 border-gray-300',
 };
