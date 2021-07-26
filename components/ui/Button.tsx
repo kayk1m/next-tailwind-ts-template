@@ -7,7 +7,7 @@ import { forwardRefWithAs } from '@utils/forward-ref-with-as';
 const DEFAULT_BUTTON_TAG = 'button' as const;
 
 const colorClasses = {
-  sky: 'bg-blue-400 hover:bg-blue-500 border-transparent',
+  blue: 'bg-blue-400 hover:bg-blue-500 border-transparent',
   red: 'bg-red-400 hover:bg-red-500 focus-visible:ring-red-500 border-transparent',
   white: 'bg-white hover:bg-gray-50 border-gray-300',
 };
@@ -24,7 +24,7 @@ const ButtonWithRef = forwardRefWithAs(function Button<
   TTag extends ElementType = typeof DEFAULT_BUTTON_TAG,
 >(props: Props<TTag, ButtonPropsWeControl> & OurButtonProps, ref: Ref<HTMLButtonElement>) {
   const {
-    color = 'sky',
+    color = 'blue',
     full = false,
     size = 'base',
     className,
@@ -34,10 +34,7 @@ const ButtonWithRef = forwardRefWithAs(function Button<
     ...rest
   } = props;
 
-  const propsWeControl = {
-    ref,
-    type: Component === 'button' ? ('button' as const) : undefined,
-  };
+  const propsWeControl = { ref, type };
   const passthroughProps = rest;
 
   return (
