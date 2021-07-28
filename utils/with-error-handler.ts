@@ -1,5 +1,6 @@
 import type { NextApiHandler } from 'next';
 import { isResSent } from 'next/dist/next-server/lib/utils';
+import Joi from 'joi';
 
 import { createError, isCustomError } from '@defines/errors';
 
@@ -14,6 +15,14 @@ export function withErrorHandler(handler: NextApiHandler) {
     } catch (err) {
       if (isResSent(res)) {
         return;
+      }
+
+      if (Joi.isError(err)) {
+        return res.status(400).json(
+          createError('VALIDATION_FAILED', {
+            message: err.message,
+          }),
+        );
       }
 
       if (isCustomError(err)) {
