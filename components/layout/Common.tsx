@@ -8,15 +8,9 @@ export default function CommonLayout({ children }: { children: React.ReactNode }
   return (
     <div className="relative min-h-full w-full">
       <main className="relative">{children}</main>
-      <Modal show={modalFlag} {...modalContent} />
 
-      <Notification
-        show={notiFlag}
-        close={() => closeNoti()}
-        variant={notiContent.variant}
-        title={notiContent.title}
-        content={notiContent.content}
-      />
+      <Modal show={modalFlag} {...modalContent} />
+      <Notification show={notiFlag} close={closeNoti} {...notiContent} />
     </div>
   );
 }
