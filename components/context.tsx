@@ -151,20 +151,7 @@ export const UIProvider: FC = ({ ...props }) => {
   useEffect(() => {
     const storedState = sessionStorage.getItem('@UIContext');
 
-    if (storedState)
-      setState({
-        ...JSON.parse(storedState),
-        notiFlag: false,
-        notiContent: { variant: 'default', title: '', content: '' },
-        modalFlag: false,
-        modalContent: {
-          title: '',
-          content: '',
-          actionButton: { label: '확인', onClick: () => {} },
-          cancelButton: { label: '취소', onClick: () => {} },
-        },
-        muted: true,
-      });
+    if (storedState) setState({ ...JSON.parse(storedState), ...initialState });
   }, []);
 
   return (
