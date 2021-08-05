@@ -62,13 +62,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fullhuman/postcss-purgecss@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/@fullhuman/postcss-purgecss/-/postcss-purgecss-4.0.3.tgz"
-  integrity sha512-/EnQ9UDWGGqHkn1UKAwSgh+gJHPKmD+Z+5dQ4gWT4qq2NUyez3zqAfZNwFH3eSgmgO+wjTXfhlLchx2M9/K+7Q==
-  dependencies:
-    purgecss "^4.0.3"
-
 "@hapi/accept@5.0.2":
   version "5.0.2"
   resolved "https://registry.npmjs.org/@hapi/accept/-/accept-5.0.2.tgz"
@@ -96,15 +89,15 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@headlessui/react@1.3.0":
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/@headlessui/react/-/react-1.3.0.tgz"
-  integrity sha512-2gqTO6BQ3Jr8vDX1B67n1gl6MGKTt6DBmR+H0qxwj0gTMnR2+Qpktj8alRWxsZBODyOiBb77QSQpE/6gG3MX4Q==
+"@headlessui/react@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.4.0.tgz#c6d424d8ab10ac925e4423d7f3cbab02c30d736a"
+  integrity sha512-C+FmBVF6YGvqcEI5fa2dfVbEaXr2RGR6Kw1E5HXIISIZEfsrH/yuCgsjWw5nlRF9vbCxmQ/EKs64GAdKeb8gCw==
 
-"@heroicons/react@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/@heroicons/react/-/react-1.0.1.tgz"
-  integrity sha512-uikw2gKCmqnvjVxitecWfFLMOKyL9BTFcU4VM3hHj9OMwpkCr5Ke+MRMyY2/aQVmsYs4VTq7NCFX05MYwAHi3g==
+"@heroicons/react@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-1.0.3.tgz#4dae106c6019e3250e36401b55b599ad41a68273"
+  integrity sha512-wdzWbDiFKzeL6xFJsgY2PqvDkx4hFmQDpEFRVj872EA71XOjr8g0DQj5rHWm0y7LwfGOFL0eQmEiMbTyGNOnTQ==
 
 "@next/env@11.0.1":
   version "11.0.1"
@@ -188,19 +181,19 @@
 
 "@tailwindcss/aspect-ratio@0.2.1":
   version "0.2.1"
-  resolved "https://registry.npmjs.org/@tailwindcss/aspect-ratio/-/aspect-ratio-0.2.1.tgz"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/aspect-ratio/-/aspect-ratio-0.2.1.tgz#a7ce776688b8218d9559a6918f0bccc58f0f16dd"
   integrity sha512-aDFi80aHQ3JM3symJ5iKU70lm151ugIGFCI0yRZGpyjgQSDS+Fbe93QwypC1tCEllQE8p0S7TUu20ih1b9IKLA==
 
 "@tailwindcss/forms@0.3.3":
   version "0.3.3"
-  resolved "https://registry.npmjs.org/@tailwindcss/forms/-/forms-0.3.3.tgz"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.3.3.tgz#a29d22668804f3dae293dcadbef1aa6315c45b64"
   integrity sha512-U8Fi/gq4mSuaLyLtFISwuDYzPB73YzgozjxOIHsK6NXgg/IWD1FLaHbFlWmurAMyy98O+ao74ksdQefsquBV1Q==
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
 "@tailwindcss/line-clamp@0.2.1":
   version "0.2.1"
-  resolved "https://registry.npmjs.org/@tailwindcss/line-clamp/-/line-clamp-0.2.1.tgz"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/line-clamp/-/line-clamp-0.2.1.tgz#efafe556719c26a3926f0679a98307c4bc9270d2"
   integrity sha512-Hq2KJY1+T2v7jw/mnT3mnC7CKbp5kj1XTqzSb2xbEt1j+JkxIR6N3ijsN/WevZtsKJfVE1KOejA/3IRKuhZEsQ==
 
 "@types/json5@^0.0.29":
@@ -759,10 +752,10 @@ classnames@2.2.6:
 
 classnames@2.3.1:
   version "2.3.1"
-  resolved "https://registry.npmjs.org/classnames/-/classnames-2.3.1.tgz"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
 
-color-convert@^1.9.0, color-convert@^1.9.1:
+color-convert@^1.9.0, color-convert@^1.9.3:
   version "1.9.3"
   resolved "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz"
   integrity sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==
@@ -786,21 +779,21 @@ color-name@~1.1.4:
   resolved "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
-color-string@^1.5.4:
-  version "1.5.5"
-  resolved "https://registry.npmjs.org/color-string/-/color-string-1.5.5.tgz"
-  integrity sha512-jgIoum0OfQfq9Whcfc2z/VhCNcmQjWbey6qBX0vqt7YICflUmBCh9E9CiQD5GSJ+Uehixm3NUwHVhqUAWRivZg==
+color-string@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/color-string/-/color-string-1.6.0.tgz#c3915f61fe267672cb7e1e064c9d692219f6c312"
+  integrity sha512-c/hGS+kRWJutUBEngKKmk4iH3sD59MBkoxVapS/0wgpCz2u7XsNloxknyvBhzwEs1IbV36D9PwqLPJ2DTu3vMA==
   dependencies:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
 
-color@^3.1.3:
-  version "3.1.3"
-  resolved "https://registry.npmjs.org/color/-/color-3.1.3.tgz"
-  integrity sha512-xgXAcTHa2HeFCGLE9Xs/R82hujGtu9Jd9x4NW3T34+OMs7VoPsjwzRczKHvTAHeJwWFwX5j15+MgAppE8ztObQ==
+color@^3.2.0:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/color/-/color-3.2.1.tgz#3544dc198caf4490c3ecc9a790b54fe9ff45e164"
+  integrity sha512-aBl7dZI9ENN6fUGC7mWpMTPNHmWUSNan9tuWN6ahh5ZLNk9baLJOnSMlrQkHcrfFgz2/RigjUVAjdx36VcemKA==
   dependencies:
-    color-convert "^1.9.1"
-    color-string "^1.5.4"
+    color-convert "^1.9.3"
+    color-string "^1.6.0"
 
 colorette@^1.2.2:
   version "1.2.2"
@@ -1021,10 +1014,10 @@ detective@^5.2.0:
     defined "^1.0.0"
     minimist "^1.1.1"
 
-didyoumean@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/didyoumean/-/didyoumean-1.2.1.tgz"
-  integrity sha1-6S7f2tplN9SE1zwBcv0eugxJdv8=
+didyoumean@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/didyoumean/-/didyoumean-1.2.2.tgz#989346ffe9e839b4555ecf5666edea0d3e8ad037"
+  integrity sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==
 
 diffie-hellman@^5.0.0:
   version "5.0.3"
@@ -1420,7 +1413,7 @@ fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   resolved "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
   integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
 
-fast-glob@^3.1.1, fast-glob@^3.2.5:
+fast-glob@^3.1.1:
   version "3.2.5"
   resolved "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.5.tgz"
   integrity sha512-2DtFcgT68wiTTiwZ2hNdJfcHNke9XOfnwmBRWXhmeKM8rF0TGwmC/Qto3S7RoZKp5cilZbxzO5iTNTQsJ+EeDg==
@@ -1431,6 +1424,17 @@ fast-glob@^3.1.1, fast-glob@^3.2.5:
     merge2 "^1.3.0"
     micromatch "^4.0.2"
     picomatch "^2.2.1"
+
+fast-glob@^3.2.7:
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.7.tgz#fd6cb7a2d7e9aa7a7846111e85a196d6b2f766a1"
+  integrity sha512-rYGMRwip6lUMvYD3BTScMwT1HtAs2d71SMv66Vrxs0IekGZEjhM0pcMfjQPnknBt2zeCwQMEupiN02ZP4DiT1Q==
+  dependencies:
+    "@nodelib/fs.stat" "^2.0.2"
+    "@nodelib/fs.walk" "^1.2.3"
+    glob-parent "^5.1.2"
+    merge2 "^1.3.0"
+    micromatch "^4.0.4"
 
 fast-json-stable-stringify@^2.0.0:
   version "2.1.0"
@@ -1937,10 +1941,10 @@ jest-worker@27.0.0-next.5:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-joi@17.4.1:
-  version "17.4.1"
-  resolved "https://registry.yarnpkg.com/joi/-/joi-17.4.1.tgz#15d2f23c8cbe4d1baded2dd190c58f8dbe11cca0"
-  integrity sha512-gDPOwQ5sr+BUxXuPDGrC1pSNcVR/yGGcTI0aCnjYxZEa3za60K/iCQ+OFIkEHWZGVCUcUlXlFKvMmrlmxrG6UQ==
+joi@17.4.2:
+  version "17.4.2"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.4.2.tgz#02f4eb5cf88e515e614830239379dcbbe28ce7f7"
+  integrity sha512-Lm56PP+n0+Z2A2rfRvsfWVDXGEWjXxatPopkQ8qQ5mxCEhwHG+Ettgg5o98FFaxilOxozoa14cFhrE/hOzh/Nw==
   dependencies:
     "@hapi/hoek" "^9.0.0"
     "@hapi/topo" "^5.0.0"
@@ -2156,6 +2160,14 @@ micromatch@^4.0.2:
   dependencies:
     braces "^3.0.1"
     picomatch "^2.0.5"
+
+micromatch@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.4.tgz#896d519dfe9db25fce94ceb7a500919bf881ebf9"
+  integrity sha512-pRmzw/XUcwXGpD9aI9q/0XOwLNygjETJ8y0ao0wdqprrzDa4YnxLcz7fQRZr8voh8V10kGhABbNcHVk5wHgWwg==
+  dependencies:
+    braces "^3.0.1"
+    picomatch "^2.2.3"
 
 miller-rabin@^4.0.0:
   version "4.0.1"
@@ -2603,6 +2615,11 @@ picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1:
   version "2.2.2"
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.2.2.tgz"
   integrity sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
+
+picomatch@^2.2.3:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
+  integrity sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==
 
 pify@^3.0.0:
   version "3.0.0"
@@ -3379,22 +3396,21 @@ table@^6.0.9:
     string-width "^4.2.0"
     strip-ansi "^6.0.0"
 
-tailwindcss@2.2.4:
-  version "2.2.4"
-  resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-2.2.4.tgz"
-  integrity sha512-OdBCPgazNNsknSP+JfrPzkay9aqKjhKtFhbhgxHgvEFdHy/GuRPo2SCJ4w1SFTN8H6FPI4m6qD/Jj20NWY1GkA==
+tailwindcss@2.2.7:
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-2.2.7.tgz#795d07a14ef46c2dc4a1610f7f906f697daaf731"
+  integrity sha512-jv35rugP5j8PpzbXnsria7ZAry7Evh0KtQ4MZqNd+PhF+oIKPwJTVwe/rmfRx9cZw3W7iPZyzBmeoAoNwfJ1yg==
   dependencies:
-    "@fullhuman/postcss-purgecss" "^4.0.3"
     arg "^5.0.0"
     bytes "^3.0.0"
     chalk "^4.1.1"
     chokidar "^3.5.2"
-    color "^3.1.3"
+    color "^3.2.0"
     cosmiconfig "^7.0.0"
     detective "^5.2.0"
-    didyoumean "^1.2.1"
+    didyoumean "^1.2.2"
     dlv "^1.1.3"
-    fast-glob "^3.2.5"
+    fast-glob "^3.2.7"
     fs-extra "^10.0.0"
     glob-parent "^6.0.0"
     html-tags "^3.1.0"
@@ -3411,6 +3427,7 @@ tailwindcss@2.2.4:
     postcss-selector-parser "^6.0.6"
     postcss-value-parser "^4.1.0"
     pretty-hrtime "^1.0.3"
+    purgecss "^4.0.3"
     quick-lru "^5.1.1"
     reduce-css-calc "^2.1.8"
     resolve "^1.20.0"
