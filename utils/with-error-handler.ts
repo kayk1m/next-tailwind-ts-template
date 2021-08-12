@@ -1,5 +1,5 @@
 import type { NextApiHandler } from 'next';
-import { isResSent } from 'next/dist/next-server/lib/utils';
+import { isResSent } from 'next/dist/shared/lib/utils';
 import Joi from 'joi';
 
 import { createError, isCustomError } from '@defines/errors';
