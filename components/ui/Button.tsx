@@ -30,11 +30,10 @@ const ButtonWithRef = forwardRefWithAs(function Button<
     className,
     as: Component = DEFAULT_BUTTON_TAG,
     children,
-    type = 'button' as const,
     ...rest
   } = props;
 
-  const propsWeControl = { ref, type };
+  const propsWeControl = { ref };
   const passthroughProps = rest;
 
   return (
