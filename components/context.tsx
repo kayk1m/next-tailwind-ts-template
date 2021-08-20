@@ -29,6 +29,7 @@ export interface State {
 
 export interface StateWithActions extends State {
   showNoti: (noti: NotiContent, autoCloseDuration?: number) => void;
+  showAlert: (err: { name: string; message: string }, autoCloseDuration?: number) => void;
   closeNoti: () => void;
   showModal: (modal: ModalContent) => void;
   closeModal: () => void;
@@ -49,6 +50,7 @@ const initialState: State = {
 const initialStateWithActions: StateWithActions = {
   ...initialState,
   showNoti: () => {},
+  showAlert: () => {},
   closeNoti: () => {},
   showModal: () => {},
   closeModal: () => {},
@@ -109,6 +111,13 @@ export const UIProvider: FC = ({ ...props }) => {
     [closeNoti],
   );
 
+  const showAlert = useCallback(
+    ({ name, message }, duration) => {
+      showNoti({ variant: 'alert', title: name, content: message }, duration);
+    },
+    [showNoti],
+  );
+
   const closeModal = useCallback(() => {
     setState((prev) => {
       const updatedState: State = {
@@ -160,6 +169,7 @@ export const UIProvider: FC = ({ ...props }) => {
         ...state,
         closeNoti,
         showNoti,
+        showAlert,
         closeModal,
         showModal,
       }}

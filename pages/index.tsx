@@ -10,7 +10,7 @@ import { Button } from '@components/ui';
 import { fetcher } from '@lib/fetcher';
 
 export default function IndexPage() {
-  const { showModal, closeModal, showNoti } = useUI();
+  const { showAlert, showModal, closeModal, showNoti } = useUI();
   const [result, setResult] = useState<string | null>(null);
 
   return (
@@ -94,9 +94,7 @@ export default function IndexPage() {
         <div className="space-x-4">
           <Button
             onClick={() => {
-              fetcher('/api')
-                .then((res) => setResult(JSON.stringify(res)))
-                .catch((err) => showNoti({ variant: 'alert', title: err.message }));
+              fetcher.get('/api').text().then(setResult).catch(showAlert);
             }}
           >
             STATUS
@@ -104,9 +102,7 @@ export default function IndexPage() {
           <Button
             color="red"
             onClick={() => {
-              fetcher('/api/error')
-                .then((res) => setResult(JSON.stringify(res)))
-                .catch((err) => showNoti({ variant: 'alert', title: err.message }));
+              fetcher.get('/api/error').text().then(setResult).catch(showAlert);
             }}
           >
             ERROR
