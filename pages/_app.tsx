@@ -9,7 +9,6 @@ import NProgress from 'nprogress';
 
 import ManagedUIContext from '@components/context';
 import { CommonLayout } from '@components/layout';
-// import { swrFetcher } from '@lib/fetcher';
 
 
 NProgress.configure({
