@@ -10,7 +10,6 @@ import NProgress from 'nprogress';
 import ManagedUIContext from '@components/context';
 import { CommonLayout } from '@components/layout';
 
-
 NProgress.configure({
   minimum: 0.3,
   easing: 'ease',
