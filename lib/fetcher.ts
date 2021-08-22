@@ -13,6 +13,6 @@ export const fetcher = ky.extend({
   },
 });
 
-export async function swrFetcher<T = any>(url: string, init?: RequestInit): Promise<T> {
-  return await fetcher(url,init).json()
-}
+// export async function swrFetcher<T = any>(url: string, init?: RequestInit): Promise<T> {
+//   return await fetcher(url,init).json()
+// }
