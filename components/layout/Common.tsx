@@ -6,8 +6,8 @@ export default function CommonLayout({ children }: { children: React.ReactNode }
   const { modalFlag, modalContent, notiFlag, closeNoti, notiContent } = useUI();
 
   return (
-    <div className="relative min-h-full w-full">
-      <main className="relative">{children}</main>
+    <div className="relative h-full w-full">
+      <main className="relative h-full">{children}</main>
 
       <Modal show={modalFlag} {...modalContent} />
       <Notification show={notiFlag} close={closeNoti} {...notiContent} />
