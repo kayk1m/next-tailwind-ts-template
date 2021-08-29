@@ -3,14 +3,16 @@
  */
 
 import { useState } from 'react';
-import NextLink from 'next/link';
 
-import { useUI } from '@components/context';
 import { Button } from '@components/ui';
+
 import { fetcher } from '@lib/fetcher';
+import { useModal } from '@lib/hooks/use-modal';
+import { useNoti } from '@lib/hooks/use-noti';
 
 export default function IndexPage() {
-  const { showAlert, showModal, closeModal, showNoti } = useUI();
+  const { showModal, closeModal } = useModal();
+  const { showNoti, showAlert } = useNoti();
   const [result, setResult] = useState<string | null>(null);
 
   return (
@@ -36,14 +38,8 @@ export default function IndexPage() {
                 content:
                   '삭제된 댓글은 복구할 수 없습니다. 댓글에 달린 모든 답글도 함께 삭제됩니다.',
                 actionButton: {
-                  label: '삭제',
-                  onClick: () => {
-                    closeModal();
-                  },
-                },
-                cancelButton: {
-                  label: '취소',
-                  onClick: () => closeModal(),
+                  label: 'Delete',
+                  onClick: closeModal,
                 },
               })
             }
@@ -60,14 +56,8 @@ export default function IndexPage() {
                 content:
                   '복구된 댓글은 삭제할 수 없습니다. 댓글에 달린 모든 답글도 함께 복구됩니다.',
                 actionButton: {
-                  label: '복구',
-                  onClick: () => {
-                    closeModal();
-                  },
-                },
-                cancelButton: {
-                  label: '취소',
-                  onClick: () => closeModal(),
+                  label: 'Restore',
+                  onClick: closeModal,
                 },
               })
             }
@@ -82,14 +72,6 @@ export default function IndexPage() {
           >
             alert Noti
           </Button>
-        </div>
-        <div className="space-x-4">
-          <NextLink href="/test" passHref>
-            <Button as="a">Button as Anchor</Button>
-          </NextLink>
-          <NextLink href="/test">
-            <Button>push button</Button>
-          </NextLink>
         </div>
         <div className="space-x-4">
           <Button

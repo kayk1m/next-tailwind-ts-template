@@ -3,18 +3,19 @@ import cn from 'classnames';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon, ExclamationIcon } from '@heroicons/react/outline';
 
-interface ModalProps {
+export interface ModalProps {
   show: boolean;
   variant?: 'default' | 'alert';
   title: string;
   content: string;
-  cancelButton: {
+  close: () => void;
+  cancelButton?: {
     label: string;
-    onClick: () => void;
+    onClick?: () => void | Promise<void>;
   };
   actionButton: {
     label: string;
-    onClick: () => void;
+    onClick: () => void | Promise<void>;
   };
 }
 
@@ -23,7 +24,8 @@ export default function Modal({
   variant = 'default',
   title,
   content,
-  cancelButton,
+  close,
+  cancelButton = { label: 'Cancel' },
   actionButton,
 }: ModalProps) {
   const cancelButtonRef = useRef<HTMLButtonElement>(null);
@@ -111,8 +113,9 @@ export default function Modal({
                         variant === 'alert',
                     },
                   )}
-                  onClick={() => {
-                    actionButton.onClick();
+                  onClick={async () => {
+                    await actionButton.onClick();
+                    close();
                   }}
                 >
                   {actionButton.label}
@@ -127,8 +130,9 @@ export default function Modal({
                         'sm:w-auto': variant === 'alert',
                       },
                     )}
-                    onClick={() => {
-                      cancelButton.onClick();
+                    onClick={async () => {
+                      if (cancelButton?.onClick) await cancelButton.onClick();
+                      close();
                     }}
                   >
                     {cancelButton.label}

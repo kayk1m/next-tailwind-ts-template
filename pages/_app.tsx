@@ -5,9 +5,10 @@ import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
+import { SWRConfig } from 'swr';
 import NProgress from 'nprogress';
 
-import ManagedUIContext from '@components/context';
+// import ManagedUIContext from '@components/context';
 import { CommonLayout } from '@components/layout';
 
 NProgress.configure({
@@ -35,11 +36,13 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script src="/js/redirectIE.js" strategy="beforeInteractive" />
-      <ManagedUIContext>
+      <SWRConfig>
+        {/* <ManagedUIContext> */}
         <CommonLayout>
           <Component {...pageProps} />
         </CommonLayout>
-      </ManagedUIContext>
+        {/* </ManagedUIContext> */}
+      </SWRConfig>
     </>
   );
 }
