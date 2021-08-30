@@ -33,5 +33,5 @@ export function useModal() {
     [setModal],
   );
 
-  return { modal: modal as Omit<ModalProps, 'close'>, showModal, closeModal };
+  return { modal: modal!, showModal, closeModal };
 }
