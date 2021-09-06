@@ -10,6 +10,7 @@ import NProgress from 'nprogress';
 
 // import ManagedUIContext from '@components/context';
 import { CommonLayout } from '@components/layout';
+import { fetcher } from '@lib/fetcher';
 
 NProgress.configure({
   minimum: 0.3,
@@ -17,6 +18,8 @@ NProgress.configure({
   speed: 500,
   showSpinner: false,
 });
+
+const fetcherSWR = async (url: string) => await fetcher(url).json();
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -36,7 +39,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script src="/js/redirectIE.js" strategy="beforeInteractive" />
-      <SWRConfig>
+      <SWRConfig value={{ fetcher: fetcherSWR }}>
         {/* <ManagedUIContext> */}
         <CommonLayout>
           <Component {...pageProps} />
