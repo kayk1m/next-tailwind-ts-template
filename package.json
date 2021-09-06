@@ -1,6 +1,6 @@
 {
   "name": "next-tailwind-ts-template",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "template project",
   "scripts": {
     "dev": "next dev",
